@@ -1,5 +1,4 @@
 package screenmatch.modelos;
-
 import screenmatch.calculos.Clasificacion;
 
 public class Pelicula extends Titulo implements Clasificacion {

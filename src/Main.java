@@ -1,3 +1,6 @@
+import screenmatch.calculos.CalculadoraDeTiempo;
+import screenmatch.calculos.FiltroRecomendacion;
+import screenmatch.modelos.Episodio;
 import screenmatch.modelos.Pelicula;
 import screenmatch.modelos.Serie;
 
@@ -26,5 +29,27 @@ public class  Main {
         casaDragon.setEpisodiosPorTemporada(10);
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
+
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombre("Matrix");
+        otraPelicula.setFechaDeLanzamiento(1998);
+        otraPelicula.setDuracionEnMinutos(180);
+
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDragon);
+        calculadora.incluye(otraPelicula);
+        System.out.println(calculadora.getTiempoTotal());
+
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtro(miPelicula);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("La casa Targaryen");
+        episodio.setSerie(casaDragon);
+        episodio.setTotalDeVisualizaciones(50);
+
+        filtroRecomendacion.filtro(episodio);
     }
 }
