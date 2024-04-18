@@ -1,10 +1,15 @@
 package screenmatch.modelos;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Serie extends Titulo {
     int temporadas;
     int episodiosPorTemporada;
     int minutosPorEpisodio;
 
+    public Serie(String nombre, int fechaDeLanzamiento) {
+        super(nombre, fechaDeLanzamiento);
+    }
 
     public int getDuracionEnMinutos() {
         return temporadas * episodiosPorTemporada * minutosPorEpisodio;
@@ -32,6 +37,11 @@ public class Serie extends Titulo {
 
     public void setMinutosPorEpisodio(int minutosPorEpisodio) {
         this.minutosPorEpisodio = minutosPorEpisodio;
+    }
+
+    @Override
+    public String toString() {
+        return "Serie: "+this.getNombre()+" ("+this.getFechaDeLanzamiento()+")";
     }
 }
 
